@@ -1,0 +1,22 @@
+@startuml
+
+
+class muse as "Museum"
+class cs as "Customer"
+class em as  "Employee"
+class art as "Artifact"
+class app as "App"
+
+
+muse - cs
+muse - em
+muse - art
+art -- cs
+art -- em
+app -- muse
+app -- cs
+app -- em
+app -- art
+cs - em
+
+@enduml

@@ -1,0 +1,87 @@
+@startuml
+' !theme
+
+class muse as "Museum"
+class art as "Artifact"
+class login as "Login"
+class per as "Person"
+class aBase as "Artifact Database"
+class isup as "IT Support"
+class faq as "F.A.Q."
+interface Ic as "ICrud"
+
+
+class muse {
+    -name : string
+    -visitorCount : int
+    -phoneNumber : int
+    -adress : string
+    -cvr : int
+
+    +SelectLanguage() : void
+}
+
+class per {
+    -id : int
+    -name : string
+    -adress : string
+    -mobileNumber : int
+    -email : string
+    -isEmployee : bool
+
+}
+
+class login {
+    -isLoggedIn : bool
+    +Login : void
+    +Logout : void
+}
+
+interface Ic {
+    +Read()
+    +Create()
+    +Update()
+    +Delete()
+}
+
+class art {
+    -id : int
+    -navn : string
+    -description : string
+    -pathToAudioFile : string
+    -pathToImage : string
+    -yearOfCreation : int
+    -artist : string
+
+    +play() : void
+    +pause() : void
+    +skip() : void
+    +stop() : void
+}
+
+class isup {
+    -mobileNumber : int
+}
+
+class faq {
+
+}
+
+class aBase {
+    ' Kan være at artifacts skal ændres til en liste
+    -artifacts : Dictionary
+
+    +SearchForArtifact() : Artifact
+}
+
+
+Ic <|-- login
+Ic <|-- aBase
+aBase o-- art
+muse - login
+login o-- per
+muse -- isup
+muse -- faq
+muse --- aBase
+
+@enduml
