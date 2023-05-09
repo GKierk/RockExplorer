@@ -1,6 +1,7 @@
 ﻿/*
  * Author: Gabriel H. Kierkegaard
  * Date: 2023-05-09
+ * moimo was here 
  */
 
 namespace RockExplorer.Model
