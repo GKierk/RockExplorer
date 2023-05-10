@@ -4,6 +4,8 @@
  */
 
 
+using RockExplorer.Interfaces;
+
 namespace RockExplorer.Model
 {
     public class ArtifactCatalog: ICRUD
@@ -13,7 +15,7 @@ namespace RockExplorer.Model
         public ArtifactCatalog() 
         {
             Artifacts = new Dictionary<int,Artifact>();
-            Artifacts.Add(1, new Artifact { ID = 1, Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
+            Artifacts.Add(1, new Artifact { ID = 1, Name = "the black guitar", Description = "First black electric guitar ever made", PathToAudioFile = "XXX", PathToImage = "guitar.jfif", YearOfCreation = 1875, Artist = "Momo" });
             Artifacts.Add(2, new Artifact { ID = 2, Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
             Artifacts.Add(3, new Artifact { ID = 3, Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
         }
