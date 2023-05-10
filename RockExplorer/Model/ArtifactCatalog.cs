@@ -1,12 +1,13 @@
 ﻿/*
  *Authors: Mohamad Kassem
  *Date: 09-05-2023
+ * Edited by: Gabriel H. Kierkegaard, Date: 10-09-2023
  */
 
 
 namespace RockExplorer.Model
 {
-    public class ArtifactCatalog: ICRUD
+    public class ArtifactCatalog: ICRUD<Artifact>
     {
         private Dictionary<int, Artifact> Artifacts { get; }
         // Her har vi lavet en Dictionary, som beskriver vores Artifacts
@@ -17,21 +18,45 @@ namespace RockExplorer.Model
             Artifacts.Add(2, new Artifact { ID = 2, Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
             Artifacts.Add(3, new Artifact { ID = 3, Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
         }
+
+
+        // hvis en person forsøger at tilføje et nyt objekt til samlingen og det objekts ID allerede findes, så bliver objektet ikke tilføjet til samlingen. 
+        // Ellers bliver det nye objekt tilføjet til samlingen.
+        public void Create(Artifact entity) 
+        {
+            if(!(Artifacts.Keys.Contains (entity.ID)))
+                Artifacts.Add(entity.ID, entity);
+        }
+
+
+        //Hvis du kender ID'en for en artifact, kan du bruge denne metode til at hente artifacten fra en samling af Artifacts og få adgang til dens beskrivelser.
+        public Artifact Read(int id)
+        
+        {
+            return Artifacts[id];
+
+        }
+
         // Metoden her giver dig en liste over alle artifacts, som er gemt i en database. 
         // Hver artifact har et nummer, som kan bruges til at finde yderligere information om genstanden i databasen.
-        public Dictionary<int, Artifact> AllArtifacts()
+        public Dictionary<int, Artifact> ReadAll()
         {
             return Artifacts;
         }
 
-        // hvis en person forsøger at tilføje et nyt objekt til samlingen og det objekts ID allerede findes, så bliver objektet ikke tilføjet til samlingen. 
-        // Ellers bliver det nye objekt tilføjet til samlingen.
-        public void AddArtifact ( Artifact artifact ) 
+        //hvis du har en liste med artifacter og du ønsker at opdatere en af dem, kan du bruge denne metode til at erstatte den gamle artifact med den nye.
+        public void Update(Artifact entity)
         {
-            if(!(Artifacts.Keys.Contains (artifact.ID)))
-                Artifacts.Add( artifact.ID, artifact );
+            Artifacts[entity.ID] = entity;
+
+        }
+        //Metoden sletter en genstand fra listen ved at bruge det angivne ID.
+        public void Delete(int id)
+        {
+            Artifacts.Remove(id);
         }
 
+       
         // FilterArtifact !! Denne metode hjælper en person med at finde en bestemt artefakt baseret på en del af navnet,
         // og returnerer en liste over artefakter, der passer til dette kriterium.
 
@@ -40,36 +65,18 @@ namespace RockExplorer.Model
             Dictionary<int, Artifact> myArtifacts = new Dictionary<int, Artifact> ();
             if (criteria != null)
             {
-                foreach (var A in Artifacts.Values)
+                foreach (Artifact A in Artifacts.Values)
                 {
-                    if (A.Name.ToLower().StartsWith(criteria.ToLower()))
+                    if (A.Name != null)
                     {
-                        myArtifacts.Add(A.ID, A);
+                        if (A.Name.ToLower().StartsWith(criteria.ToLower()))
+                        {
+                            myArtifacts.Add(A.ID, A);
+                        }
                     }
                 }
             }
             return myArtifacts;
         }
-
-        //Hvis du kender ID'en for en artifact, kan du bruge denne metode til at hente artifacten fra en samling af Artifacts og få adgang til dens beskrivelser.
-        public Artifact GetArtifact( int ID )
-        
-        {
-            return Artifacts[ID];
-
-        }
-        //hvis du har en liste med artifacter og du ønsker at opdatere en af dem, kan du bruge denne metode til at erstatte den gamle artifact med den nye.
-        public void UpdateArtifact( Artifact artifact )
-        {
-            Artifacts[artifact.ID] = artifact;
-
-        }
-        //Metoden sletter en genstand fra listen ved at bruge det angivne ID.
-        public void Delete( int ID )
-        {
-            Artifacts.Remove(ID);
-        }
-
-       
     }
 }
