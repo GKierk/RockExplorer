@@ -7,7 +7,7 @@ namespace RockExplorer.Model
 {
     public interface ICRUD<T>
     {
-        public T Create(T entity);
+        public void Create(T entity);
         public T Read(int id);
         public Dictionary<int, T> ReadAll();
         public void Update(T entity);
