@@ -1,4 +1,8 @@
-﻿using RockExplorer.Interfaces;
+﻿/*
+ *Authors: Mohamad Kassem
+ *Date: 09-05-2023
+ */
+
 
 namespace RockExplorer.Model
 {

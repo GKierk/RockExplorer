@@ -1,4 +1,10 @@
-﻿using RockExplorer.Model;
+﻿/*
+ *Authors: Mohamad Kassem
+ *Date: 09-05-2023
+ */
+
+using RockExplorer.Model;
+
 // Denne metode beskriver et interface kaldet ICRUD, som definerer en række metoder til at udføre CRUD-operationer (Create, Read, Update og Delete) på en samling af "Artifact"-objekter.
 namespace RockExplorer.Interfaces
 {
