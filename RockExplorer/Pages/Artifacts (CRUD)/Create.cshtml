@@ -1,0 +1,51 @@
+﻿@page
+@model RockExplorer.Pages.Artifacts__CRUD_.CreateArtifactModel
+@{
+    ViewData["Title"] = "CreateArtifact";
+}
+<h1>CreatePizza</h1>
+
+<form method="post">
+
+    <div class="form-group">
+        <label asp-for="@Model.Artifact.ID" class="control-label"> Id </label>
+        <input asp-for="@Model.Artifact.ID" class="form-control" />
+        <span asp-validation-for="@Model.Artifact.ID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Artifact.Artist" class="control-label">Name </label>
+        <input asp-for="@Model.Artifact.Artist" class="form-control" />
+        <span asp-validation-for="@Model.Artifact.Artist" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Artifact.Name" class="control-label">Name </label>
+        <input asp-for="@Model.Artifact.Name" class="form-control" />
+        <span asp-validation-for="@Model.Artifact.Name" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Artifact.Description" class="control-label">Description</label>
+        <input asp-for="@Model.Artifact.Description" class="form-control" />
+        <span asp-validation-for="@Model.Artifact.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Artifact.YearOfCreation" class="control-label">Price</label>
+        <input asp-for="@Model.Artifact.YearOfCreation" class="form-control" />
+        <span asp-validation-for="@Model.Artifact.YearOfCreation" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Artifact.PathToImage" class="control-label"> ImageName </label>
+        <input asp-for="@Model.Artifact.PathToImage" class="form-control" />
+        <span asp-validation-for="@Model.Artifact.PathToImage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Artifact.PathToAudioFile" class="control-label"> ImageName </label>
+        <input asp-for="@Model.Artifact.PathToAudioFile" class="form-control" />
+        <span asp-validation-for="@Model.Artifact.PathToAudioFile" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
