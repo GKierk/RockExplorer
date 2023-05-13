@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RockExplorer.Model;
 
-namespace RockExplorer.Pages
+namespace RockExplorer.Pages.Shared
 {
     public class ArtifactsModel : PageModel
     {
@@ -16,7 +16,7 @@ namespace RockExplorer.Pages
 
         public ArtifactsModel()
         {
-            catalog = ArtifactCatalog.GetInstance();
+            catalog = new ArtifactCatalog();
         }
 
         public void OnGet()

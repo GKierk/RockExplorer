@@ -32,21 +32,19 @@
         @foreach (var item in Model.Artifacts)
         {
             <tr>
-                <td>
-                    @item.Key
-                </td>
-                <td>
-                    @item.Value.Name
-                </td>
-                <td>
-                    @item.Value.Description
-                </td>
-                <td>
-                    @item.Value.YearOfCreation
-                </td>
-                <td>
-                    @item.Value.Artist
-                </td>
+                @item.Value.ID
+            </tr>
+            <tr>
+                @item.Value.Name
+            </tr>
+            <tr>
+                @item.Value.Description
+            </tr>
+            <tr>
+                @item.Value.YearOfCreation
+            </tr>
+            <tr>
+                @item.Value.Artist
             </tr>
         }
     </tbody>
