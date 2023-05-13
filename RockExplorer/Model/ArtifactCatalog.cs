@@ -11,14 +11,26 @@ namespace RockExplorer.Model
 {
     public class ArtifactCatalog: ICRUD<Artifact>
     {
+        private static ArtifactCatalog instance = null;
+        private ArtifactCatalog catalog;
         private Dictionary<int, Artifact> Artifacts { get; }
         // Her har vi lavet en Dictionary, som beskriver vores Artifacts
         public ArtifactCatalog() 
         {
             Artifacts = new Dictionary<int,Artifact>();
-            Artifacts.Add(1, new Artifact { ID = 1, Name = "the black guitar", Description = "First black electric guitar ever made", PathToAudioFile = "XXX", PathToImage = "guitar.jfif", YearOfCreation = 1875, Artist = "Momo" });
-            Artifacts.Add(2, new Artifact { ID = 2, Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
-            Artifacts.Add(3, new Artifact { ID = 3, Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
+            Artifacts.Add(1, new Artifact { Name = "the black guitar", Description = "First black electric guitar ever made", PathToAudioFile = "XXX", PathToImage = "guitar.jfif", YearOfCreation = 1875, Artist = "Momo" });
+            Artifacts.Add(2, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
+            Artifacts.Add(3, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
+        }
+
+        public static ArtifactCatalog GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new ArtifactCatalog();
+            }
+
+            return instance;
         }
 
 
@@ -26,8 +38,11 @@ namespace RockExplorer.Model
         // Ellers bliver det nye objekt tilføjet til samlingen.
         public void Create(Artifact entity) 
         {
-            if(!(Artifacts.Keys.Contains (entity.ID)))
-                Artifacts.Add(entity.ID, entity);
+            int Dictionarysize = Artifacts.Count;
+            Dictionarysize++;
+            Artifacts.Add(Dictionarysize, entity);
+            //if(!(Artifacts.Keys.Contains (entity.ID)))
+            //    Artifacts.Add(entity.ID, entity);
         }
 
 
@@ -49,7 +64,7 @@ namespace RockExplorer.Model
         //hvis du har en liste med artifacter og du ønsker at opdatere en af dem, kan du bruge denne metode til at erstatte den gamle artifact med den nye.
         public void Update(Artifact entity)
         {
-            Artifacts[entity.ID] = entity;
+            //Artifacts[entity.ID] = entity;
 
         }
         //Metoden sletter en genstand fra listen ved at bruge det angivne ID.
@@ -73,7 +88,7 @@ namespace RockExplorer.Model
                     {
                         if (A.Name.ToLower().StartsWith(criteria.ToLower()))
                         {
-                            myArtifacts.Add(A.ID, A);
+                            //myArtifacts.Add(A.ID, A);
                         }
                     }
                 }
