@@ -21,7 +21,7 @@ namespace RockExplorer.Pages.Shared
 
         public void OnGet()
         {
-            catalog.ReadAll();
+            Artifacts = catalog.ReadAll();
         }
     }
 }
