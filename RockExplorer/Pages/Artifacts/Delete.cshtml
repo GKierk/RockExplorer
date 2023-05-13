@@ -1,0 +1,62 @@
+﻿@*/*
+ *Authors: Mohamad Kassem
+ *Date: 09-05-2023
+ */*@
+@page "{id}"
+@model RockExplorer.Pages.Artifacts__CRUD_.Delete
+    ViewData["Title"] = "DeleteArtifact";
+}
+
+<h1>DeleteEvent</h1>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <form method="post">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.artifact.ID)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.artifact.ID)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.artifact.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.artifact.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.artifact.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.artifact.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.artifact.PathToAudioFile)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.artifact.PathToAudioFile)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.artifact.PathToImage)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.artifact.PathToImage)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.artifact.YearOfCreation)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.artifact.YearOfCreation)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.artifact.Artist)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.artifact.Artist)
+            </dd>
+        </dl>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </form>
+    <div>
+        <a asp-page="GetAllArtifacts">Back to List</a>
+    </div>
