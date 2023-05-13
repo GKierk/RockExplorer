@@ -1,6 +1,7 @@
 /*
  *Authors: Mohamad Kassem
  *Date: 09-05-2023
+ *Edited by: Gabriel H. Kierkegaard, Date: 13-05-2023
  */
 
 
@@ -17,14 +18,15 @@ namespace RockExplorer.Pages.Artifacts__CRUD_
 
         [BindProperty]
         public Artifact artifact { get; set; }
-        private ICRUD catalog;
-        public Delete(ICRUD repository)
+        private ArtifactCatalog catalog;
+        //private ICRUD catalog;
+        public Delete()
         {
-            catalog = repository;
+            catalog = ArtifactCatalog.GetInstance();
         }
         public IActionResult OnGet(int id)
         {
-            artifact = catalog.GetArtifact(id);
+            artifact = catalog.Read(id);
             return Page();
         }
 
