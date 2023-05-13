@@ -6,8 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Artifacts %28CRUD%29\" />
-  </ItemGroup>
-
 </Project>
