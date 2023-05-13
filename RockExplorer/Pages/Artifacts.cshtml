@@ -1,0 +1,51 @@
+﻿@*
+    Author: Gabriel H. Kierkegaard, Date: 13-05-2023
+*@
+
+@page
+@model RockExplorer.Pages.Shared.ArtifactsModel
+@{
+}
+
+<h1>List of Artifacts</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Navn
+            </th>
+            <th>
+                Beskrivelse
+            </th>
+            <th>
+                Dato
+            </th>
+            <th>
+                Kunstner
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Artifacts)
+        {
+            <tr>
+                @item.Value.ID
+            </tr>
+            <tr>
+                @item.Value.Name
+            </tr>
+            <tr>
+                @item.Value.Description
+            </tr>
+            <tr>
+                @item.Value.YearOfCreation
+            </tr>
+            <tr>
+                @item.Value.Artist
+            </tr>
+        }
+    </tbody>
+</table>
