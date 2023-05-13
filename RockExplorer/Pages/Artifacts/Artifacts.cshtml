@@ -3,7 +3,7 @@
 *@
 
 @page
-@model RockExplorer.Pages.Shared.ArtifactsModel
+@model RockExplorer.Pages.Artifacts.ArtifactsModel
 @{
 }
 
@@ -32,7 +32,7 @@
         @foreach (var item in Model.Artifacts)
         {
             <tr>
-                @item.Value.ID
+                @item.Key
             </tr>
             <tr>
                 @item.Value.Name
