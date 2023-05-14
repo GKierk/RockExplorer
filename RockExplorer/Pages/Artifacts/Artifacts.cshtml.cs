@@ -16,7 +16,7 @@ namespace RockExplorer.Pages.Artifacts
 
         public ArtifactsModel()
         {
-            catalog = new ArtifactCatalog();
+            catalog = ArtifactCatalog.GetInstance();
         }
 
         public void OnGet()
