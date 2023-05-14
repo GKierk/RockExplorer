@@ -2,6 +2,7 @@
  *Authors: Mohamad Kassem
  *Date: 09-05-2023
  * Edited by: Gabriel H. Kierkegaard, Date: 10-09-2023
+ * Edited by: Gabriel H. Kierkegaard, Date: 14-09-2023
  */
 
 
@@ -15,7 +16,7 @@ namespace RockExplorer.Model
         private ArtifactCatalog catalog;
         private Dictionary<int, Artifact> Artifacts { get; }
         // Her har vi lavet en Dictionary, som beskriver vores Artifacts
-        public ArtifactCatalog() 
+        private ArtifactCatalog() 
         {
             Artifacts = new Dictionary<int,Artifact>();
             Artifacts.Add(1, new Artifact { Name = "the black guitar", Description = "First black electric guitar ever made", PathToAudioFile = "XXX", PathToImage = "guitar.jfif", YearOfCreation = 1875, Artist = "Momo" });
