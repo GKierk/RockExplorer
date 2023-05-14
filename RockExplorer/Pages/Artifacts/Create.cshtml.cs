@@ -1,6 +1,7 @@
 /*
  *Authors: Mohamad Kassem
  *Date: 09-05-2023
+ *Edited by: Gabriel H. Kierkegaard, Date: 14-05-2023
  */
 
 
@@ -15,13 +16,17 @@ namespace RockExplorer.Pages.Artifacts
 
     public class CreateArtifactModel : PageModel
     {
+        private ArtifactCatalog catalog;
+
         [BindProperty]
         public Artifact Artifact { get; set; }
-        private ICRUD catalog;
-        public CreateArtifactModel(ICRUD repository)
+        //private ICRUD catalog;
+
+        public CreateArtifactModel()
         {
-            catalog = repository;
+            catalog = ArtifactCatalog.GetInstance();
         }
+
         public IActionResult OnGet()
         {
             return Page();
@@ -34,9 +39,8 @@ namespace RockExplorer.Pages.Artifacts
                 return Page();
             }
 
-            catalog.AddArtifact(Artifact);
-
-            return RedirectToPage("GetAllArtifacts");
+            catalog.Create(Artifact);
+            return RedirectToPage("Read");
         }
     }
 }
