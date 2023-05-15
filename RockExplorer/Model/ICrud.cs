@@ -1,6 +1,6 @@
 ﻿/*
- * Author: Gabriel H. Kierkegaard
- * Date: 08-05-2023
+ * Author: Gabriel H. Kierkegaard, Date: 08-05-2023
+ * Edited by: Gabriel H. Kierkegaard, Date: 15-05-2023
  */
 
 namespace RockExplorer.Model
@@ -8,9 +8,9 @@ namespace RockExplorer.Model
     public interface ICRUD<T>
     {
         public void Create(T entity);
-        public T Read(int id);
+        public T Read(int key);
         public Dictionary<int, T> ReadAll();
         public void Update(T entity);
-        public void Delete(int id);
+        public void Delete(int key);
     }
 }
