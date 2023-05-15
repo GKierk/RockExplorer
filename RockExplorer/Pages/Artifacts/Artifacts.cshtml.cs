@@ -1,5 +1,6 @@
 /*
  * Author: Gabriel H. Kierkegaard, Date: 13-05-2023
+ * Edited by: Gabriel H. Kierkegaard, Date: 13-05-2023
  */
 
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,7 @@ namespace RockExplorer.Pages.Artifacts
 
         public ArtifactsModel()
         {
-            catalog = ArtifactCatalog.GetInstance();
+            catalog = ArtifactCatalog.Instace;
         }
 
         public void OnGet()
