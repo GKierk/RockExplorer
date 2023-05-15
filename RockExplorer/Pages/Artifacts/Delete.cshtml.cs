@@ -2,6 +2,7 @@
  *Authors: Mohamad Kassem
  *Date: 09-05-2023
  *Edited by: Gabriel H. Kierkegaard, Date: 13-05-2023
+ *Edited by: Gabriel H. Kierkegaard, Date: 15-05-2023
  */
 
 
@@ -22,7 +23,7 @@ namespace RockExplorer.Pages.Artifacts__CRUD_
         //private ICRUD catalog;
         public Delete()
         {
-            catalog = ArtifactCatalog.GetInstance();
+            catalog = ArtifactCatalog.Instace;
         }
         public IActionResult OnGet(int id)
         {
