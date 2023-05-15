@@ -2,6 +2,7 @@
  *Authors: Mohamad Kassem
  *Date: 09-05-2023
  *Edited by: Gabriel H. Kierkegaard, Date: 14-05-2023
+ *Edited by: Gabriel H. Kierkegaard, Date: 15-05-2023
  */
 
 
@@ -24,7 +25,7 @@ namespace RockExplorer.Pages.Artifacts
 
         public CreateArtifactModel()
         {
-            catalog = ArtifactCatalog.GetInstance();
+            catalog = ArtifactCatalog.Instace;
         }
 
         public IActionResult OnGet()
