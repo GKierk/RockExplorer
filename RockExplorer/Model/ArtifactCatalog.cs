@@ -3,6 +3,7 @@
  *Date: 09-05-2023
  * Edited by: Gabriel H. Kierkegaard, Date: 10-09-2023
  * Edited by: Gabriel H. Kierkegaard, Date: 15-09-2023
+ * Edited by: Gabriel H. Kierkegaard, Date: 16-09-2023
  */
 
 
@@ -23,7 +24,7 @@ namespace RockExplorer.Model
             Artifacts.Add(1, new Artifact { Name = "the black guitar", Description = "First black electric guitar ever made", PathToAudioFile = "XXX", PathToImage = "guitar.jfif", YearOfCreation = 1875, Artist = "Momo" });
             Artifacts.Add(2, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
             Artifacts.Add(3, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
-            int dictionarySize = Artifacts.Count;
+            dictionarySize = Artifacts.Count;
         }
 
         public static ArtifactCatalog Instace
