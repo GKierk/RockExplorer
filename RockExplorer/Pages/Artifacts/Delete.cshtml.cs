@@ -34,7 +34,7 @@ namespace RockExplorer.Pages.Artifacts__CRUD_
         public IActionResult OnPost(int id)
         {
             catalog.Delete(id);
-            return RedirectToPage("GetAllArtifacts");
+            return RedirectToPage("Read");
         }
     }
 }
