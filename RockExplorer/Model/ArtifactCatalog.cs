@@ -15,7 +15,7 @@ namespace RockExplorer.Model
     {
         private static ArtifactCatalog instance = null;
         private ArtifactCatalog catalog;
-        private Dictionary<int, Artifact> Artifacts { get; }
+        public Dictionary<int, Artifact> Artifacts { get; }
         private int dictionarySize;
         // Her har vi lavet en Dictionary, som beskriver vores Artifacts
         public ArtifactCatalog() 
