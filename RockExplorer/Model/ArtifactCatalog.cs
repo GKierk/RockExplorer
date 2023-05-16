@@ -42,9 +42,10 @@ namespace RockExplorer.Model
         // Ellers bliver det nye objekt tilføjet til samlingen.
         public void Create(Artifact entity) 
         {
-            int Dictionarysize = Artifacts.Count;
+            ArtifactCatalog cat = ArtifactCatalog.instance;
+            int Dictionarysize = cat.Artifacts.Count;
             Dictionarysize++;
-            Artifacts.Add(Dictionarysize, entity);
+            cat.Artifacts.Add(Dictionarysize, entity);
             //if(!(Artifacts.Keys.Contains (entity.ID)))
             //    Artifacts.Add(entity.ID, entity);
         }
