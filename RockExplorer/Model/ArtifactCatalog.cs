@@ -15,7 +15,7 @@ namespace RockExplorer.Model
         private static ArtifactCatalog instance = null;
         private ArtifactCatalog catalog;
         private Dictionary<int, Artifact> Artifacts { get; }
-        private int catalogSize;
+        private int dictionarySize;
         // Her har vi lavet en Dictionary, som beskriver vores Artifacts
         public ArtifactCatalog() 
         {
@@ -24,7 +24,6 @@ namespace RockExplorer.Model
             Artifacts.Add(2, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
             Artifacts.Add(3, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
             int dictionarySize = Artifacts.Count;
-            catalogSize = dictionarySize;
         }
 
         public static ArtifactCatalog Instace
@@ -46,8 +45,8 @@ namespace RockExplorer.Model
         public void Create(Artifact entity) 
         {
             ArtifactCatalog cat = ArtifactCatalog.instance;
-            catalogSize++;
-            cat.Artifacts.Add(catalogSize, entity);
+            dictionarySize++;
+            cat.Artifacts.Add(dictionarySize, entity);
         }
 
 
