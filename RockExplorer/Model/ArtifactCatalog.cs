@@ -4,6 +4,7 @@
  * Edited by: Gabriel H. Kierkegaard, Date: 10-09-2023
  * Edited by: Gabriel H. Kierkegaard, Date: 15-09-2023
  * Edited by: Gabriel H. Kierkegaard, Date: 16-09-2023
+ * Edited by: Gabriel H. Kierkegaard, Date: 17-09-2023
  */
 
 
@@ -17,7 +18,6 @@ namespace RockExplorer.Model
         private ArtifactCatalog catalog;
         public Dictionary<int, Artifact> Artifacts { get; }
         public int key { get; set; }
-
 
         private int dictionarySize;
         // Her har vi lavet en Dictionary, som beskriver vores Artifacts
