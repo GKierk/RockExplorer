@@ -1,6 +1,7 @@
 ﻿/*
  * Author: Gabriel H. Kierkegaard, Date: 08-05-2023
  * Edited by: Gabriel H. Kierkegaard, Date: 15-05-2023
+ * Edited by: Gabriel H. Kierkegaard, Date: 17-05-2023
  */
 
 namespace RockExplorer.Model
