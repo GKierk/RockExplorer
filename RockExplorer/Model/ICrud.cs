@@ -10,7 +10,7 @@ namespace RockExplorer.Model
         public void Create(T entity);
         public T Read(int key);
         public Dictionary<int, T> ReadAll();
-        public void Update(T entity);
+        public void Update(int key, T entity);
         public void Delete(int key);
     }
 }

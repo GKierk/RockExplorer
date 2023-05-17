@@ -18,14 +18,16 @@ namespace RockExplorer.Pages.Artifacts__CRUD_
 
         [BindProperty]
         public Artifact artifact { get; set; }
-        //private ICRUD catalog;
+
         public Update()
         {
             catalog = ArtifactCatalog.Instace;
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
+            catalog.key = id;
             artifact = catalog.Read(id);
+            return Page();
         }
 
         public IActionResult OnPost()
@@ -34,7 +36,7 @@ namespace RockExplorer.Pages.Artifacts__CRUD_
             {
                 return Page();
             }
-            catalog.Update(artifact);
+            catalog.Update(catalog.key, artifact);
             return RedirectToPage("Read");
         }
     }

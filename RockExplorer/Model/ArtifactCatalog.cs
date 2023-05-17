@@ -16,6 +16,9 @@ namespace RockExplorer.Model
         private static ArtifactCatalog instance = null;
         private ArtifactCatalog catalog;
         public Dictionary<int, Artifact> Artifacts { get; }
+        public int key { get; set; }
+
+
         private int dictionarySize;
         // Her har vi lavet en Dictionary, som beskriver vores Artifacts
         public ArtifactCatalog() 
@@ -67,24 +70,18 @@ namespace RockExplorer.Model
         }
 
         //hvis du har en liste med artifacter og du ønsker at opdatere en af dem, kan du bruge denne metode til at erstatte den gamle artifact med den nye.
-        public void Update(Artifact entity)
+        public void Update(int key, Artifact entity)
         {
             ArtifactCatalog cat = ArtifactCatalog.instance;
 
-            if (entity != null)
+            if (entity != null && cat.Artifacts.ContainsKey(key))
             {
-                foreach (var kvp in cat.Artifacts)
-                {
-                    if (cat.Artifacts.Keys.Equals(kvp.Key))
-                    {
-                        kvp.Value.Name = entity.Name;
-                        kvp.Value.Description = entity.Description;
-                        kvp.Value.PathToAudioFile = entity.PathToAudioFile;
-                        kvp.Value.PathToImage = entity.PathToImage;
-                        kvp.Value.YearOfCreation = entity.YearOfCreation;
-                        kvp.Value.Artist = entity.Artist;
-                    }
-                }
+                cat.Artifacts[key].Name = entity.Name;
+                cat.Artifacts[key].Description = entity.Description;
+                cat.Artifacts[key].PathToAudioFile = entity.PathToAudioFile;
+                cat.Artifacts[key].PathToImage = entity.PathToImage;
+                cat.Artifacts[key].YearOfCreation = entity.YearOfCreation;
+                cat.Artifacts[key].Artist = entity.Artist;
             }
         }
         //Metoden sletter en genstand fra listen ved at bruge det angivne ID.
