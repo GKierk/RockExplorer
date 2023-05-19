@@ -7,8 +7,8 @@
  */
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RockExplorer.Interfaces;
 using RockExplorer.Model;
+using RockExplorer.ModelView;
 
 // denne kode gør det muligt for brugeren at opdatere en eksisterende "Artifact" i databasen ved at udfylde en formular og klikke på en knap.
 namespace RockExplorer.Pages.Artifacts__CRUD_
@@ -22,7 +22,7 @@ namespace RockExplorer.Pages.Artifacts__CRUD_
 
         public Update()
         {
-            catalog = ArtifactCatalog.Instace;
+            catalog = ArtifactCatalog.Instance;
         }
         public IActionResult OnGet(int id)
         {

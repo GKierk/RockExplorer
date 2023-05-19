@@ -1,18 +1,62 @@
 ﻿@page
 @model RockExplorer.Pages.ITSupportModel
 @{
+    <!DOCTYPE html>
     <html>
 
     <head>
-        <title> IT Help  </title>
+        <title>IT Help</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                margin: 0;
+                padding: 20px;
+                text-align: center;
+            }
+
+            h1 {
+                color: #333;
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            p {
+                color: #666;
+                font-size: 18px;
+                line-height: 1.5;
+                margin-bottom: 40px;
+            }
+
+            b {
+                color: #333;
+                font-weight: bold;
+            }
+
+            .contact-info {
+                margin-bottom: 40px;
+            }
+
+                .contact-info a {
+                    color: #333;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    .contact-info a:hover {
+                        text-decoration: underline;
+                    }
+        </style>
     </head>
 
     <body>
-        <p> Call us if you need help using our webapplication! Please check the FAQ before calling. <b>Our phone is: +45 12 12 12 12</b> </p>
-
+        <h1>IT Help</h1>
+        <p>Call us if you need help using our web application! Please check the FAQ before calling.</p>
+        <div class="contact-info">
+            <p><b>Our phone is: <a href="tel:+4512121212">+45 12 12 12 12</a></b></p>
+        </div>
     </body>
 
-
-
     </html>
+
 }
