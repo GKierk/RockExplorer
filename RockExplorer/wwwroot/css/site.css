@@ -17,7 +17,7 @@ body {
   margin-bottom: 60px;
 }
 
-/*create-page is to indicate the use of this bootstrap code to the Create.cshtml"  */
+/*create-page is to indicate the use of this bootstrap code to the Create.cshtml"- Mk  */
 
 .create-page .create-form {
     max-width: 500px;
@@ -67,7 +67,7 @@ body {
 }
 
 
-/*Read.csthml */
+/*Read.csthml- Mk */
 .Read-page h1 {
     margin-top: 20px;
 }
@@ -108,7 +108,7 @@ body {
     gap: 5px;
 }
 
-/*Update.csthml*/
+/*Update.csthml - Mk*/
 
 .Update-page .update-form {
     max-width: 500px;
