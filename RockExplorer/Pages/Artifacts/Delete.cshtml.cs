@@ -9,10 +9,14 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RockExplorer.Interfaces;
 using RockExplorer.Model;
-//Kort sagt tillader denne metode brugeren at slette en Artifact fra samlingen ved at bruge webapplikationen.
+using RockExplorer.ModelView;
+// Denne den del af koden sørger for at slette en specifik artefakt baseret på dens ID.-MK
+// På GET-anmodningen hentes artefacten fra kataloget, og hvis den ikke findes, vises en fejlside.-MK
+// På POST-anmodningen slettes artefacten fra kataloget, og brugeren omdirigeres til læsesiden.-MK
+
 namespace RockExplorer.Pages.Artifacts__CRUD_
+
 {
     public class Delete : PageModel
     {
@@ -23,7 +27,7 @@ namespace RockExplorer.Pages.Artifacts__CRUD_
         //private ICRUD catalog;
         public Delete()
         {
-            catalog = ArtifactCatalog.Instace;
+            catalog = ArtifactCatalog.Instance;
         }
         public IActionResult OnGet(int id)
         {
