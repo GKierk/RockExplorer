@@ -1,55 +1,62 @@
 ﻿@*/*
  *Authors: Mohamad Kassem
  *Date: 09-05-2023
+ * 
+ * Edited: Mohamad kassem - 18-05-2023
  */*@
 @page
 @model CreateArtifactModel
 @{
     ViewData["Title"] = "CreateArtifact";
 }
-<h1>CreatePizza</h1>
+@**Dette er en HTML-template til brug af funktionen "Create" her kan en brug få fremvist muligheden for at tryk på en Create knap og udfør handlingen på et anvendt objekt-MK*@
 
-<form method="post">
+<div class="create-page">
+<h1>CreateArtifact</h1>
 
-@*    <div class="form-group">
-        <label asp-for="@Model.Artifact.ID" class="control-label"> Id </label>
-        <input asp-for="@Model.Artifact.ID" class="form-control" />
-        <span asp-validation-for="@Model.Artifact.ID" class="text-danger"></span>
-    </div>*@
+<form method="post" class="create-form">
+
     <div class="form-group">
-        <label asp-for="@Model.Artifact.Artist" class="control-label">Name </label>
-        <input asp-for="@Model.Artifact.Artist" class="form-control" />
-        <span asp-validation-for="@Model.Artifact.Artist" class="text-danger"></span>
-
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Artifact.Name" class="control-label">Name </label>
+        <label asp-for="@Model.Artifact.Name" class="control-label">Name</label>
         <input asp-for="@Model.Artifact.Name" class="form-control" />
         <span asp-validation-for="@Model.Artifact.Name" class="text-danger"></span>
-
     </div>
+
     <div class="form-group">
         <label asp-for="@Model.Artifact.Description" class="control-label">Description</label>
         <input asp-for="@Model.Artifact.Description" class="form-control" />
         <span asp-validation-for="@Model.Artifact.Description" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="@Model.Artifact.YearOfCreation" class="control-label">Year of Creation</label>
+        <label asp-for="@Model.Artifact.YearOfCreation" class="control-label">YearOfCreation</label>
         <input asp-for="@Model.Artifact.YearOfCreation" class="form-control" />
         <span asp-validation-for="@Model.Artifact.YearOfCreation" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="@Model.Artifact.PathToImage" class="control-label"> ImageName </label>
+        <label asp-for="@Model.Artifact.PathToImage" class="control-label">ImageName</label>
         <input asp-for="@Model.Artifact.PathToImage" class="form-control" />
         <span asp-validation-for="@Model.Artifact.PathToImage" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="@Model.Artifact.PathToAudioFile" class="control-label"> ImageName </label>
+        <label asp-for="@Model.Artifact.PathToAudioFile" class="control-label">PathToAudioFile</label>
         <input asp-for="@Model.Artifact.PathToAudioFile" class="form-control" />
         <span asp-validation-for="@Model.Artifact.PathToAudioFile" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="@Model.Artifact.Artist" class="control-label">Artist</label>
+        <input asp-for="@Model.Artifact.Artist" class="form-control" />
+        <span asp-validation-for="@Model.Artifact.Artist" class="text-danger"></span>
+    </div>
+
 
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
+        <a asp-page="Read" class="btn btn-primary">Back to List</a>
     </div>
 </form>
+
+
+
