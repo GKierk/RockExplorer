@@ -8,82 +8,61 @@
 @{
     ViewData["Title"] = "GetAllArtifacts";
 }
+@* Dette er en HTML-template til brug af funktionen "Read". Her kan en bruger se alle artefakter og have muligheden for at trykke på en "Delete"-knap og Edit"" for at udføre handlingen på et specifikt objekt.-MK *@
+
+ <DIV class="Read-page"> 
 <h1>GetAllArtifacts</h1>
 
 <p>
-    <a asp-page="Create">Create New Artifact</a>
+    <a asp-page="Create" class="btn btn-primary">Create New Artifact</a>
 </p>
 
-<form>
-    <p>
-        Search: <input type="text" asp-for="FilterCriteria" />
-        <input type="submit" value="Filter" />
-    </p>
+<form method="get">
+    <div class="form-group">
+        <label for="filterInput">Search:</label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="filterInput" asp-for="FilterCriteria" />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+        </div>
+    </div>
 </form>
 
-
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                PathToAudioFile
-            </th>
-            <th>
-                PathToImage
-            </th>
-            <th>
-                YearOfCreation
-            </th>
-            <th>
-                Artist
-            </th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>PathToAudioFile</th>
+            <th>PathToImage</th>
+            <th>YearOfCreation</th>
+            <th>Artist</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Artifacts)
         {
             <tr>
+                <td>@item.Key</td>
+                <td>@item.Value.Name</td>
+                <td>@item.Value.Description</td>
+                <td>@item.Value.PathToAudioFile</td>
                 <td>
-                    @item.Key
+                    <img src="~/Images/@item.Value.PathToImage" width="60" height="70" alt="Image">
                 </td>
+                <td>@item.Value.YearOfCreation</td>
+                <td>@item.Value.Artist</td>
                 <td>
-                    @item.Value.Name
-                </td>
-                <td>
-                    @item.Value.Description
-                </td>
-                <td>
-                    @item.Value.PathToAudioFile
-                </td>
-                <td>
-                    @item.Value.PathToImage
-                </td>
-                <td>
-                    @item.Value.YearOfCreation
-                </td>
-                <td>
-                    @item.Value.Artist
-                </td>
-                <td>
-                    <img src="~/Images/@item.Value.PathToImage" width="60" height="70">
-                </td>
-                <td>
-                    <p>
-                        <a asp-page="Update" asp-route-id="@item.Key">Edit</a> |
-                        <a asp-page="Delete" asp-route-id="@item.Key">Delete</a>
-                    </p>
+                    <div class="btn-group" role="group" aria-label="Actions">
+                        <a asp-page="Update" asp-route-id="@item.Key" class="btn btn-primary">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@item.Key" class="btn btn-danger">Delete</a>
+                    </div>
                 </td>
             </tr>
         }
     </tbody>
-
 </table>
+
