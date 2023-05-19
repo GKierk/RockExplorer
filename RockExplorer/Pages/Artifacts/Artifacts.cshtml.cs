@@ -6,7 +6,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RockExplorer.Model;
+using RockExplorer.ModelView;
 
+// Dette er en modelklasse, der repræsenterer en side i applikationen, der viser en liste over artefakter.
+// Den henter artefakterne fra ArtifactCatalog ved hjælp af ReadAll-metoden og gør dem tilgængelige for visning på siden.-Mk
 namespace RockExplorer.Pages.Artifacts
 {
     public class ArtifactsModel : PageModel
@@ -17,7 +20,7 @@ namespace RockExplorer.Pages.Artifacts
 
         public ArtifactsModel()
         {
-            catalog = ArtifactCatalog.Instace;
+            catalog = ArtifactCatalog.Instance;
         }
 
         public void OnGet()
