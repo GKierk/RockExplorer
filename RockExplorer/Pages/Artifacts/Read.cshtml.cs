@@ -6,19 +6,19 @@
  */
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RockExplorer.Interfaces;
 using RockExplorer.Model;
+using RockExplorer.ModelView;
 
-//Kort sagt gør denne metode det muligt at hente og filtrere artefakter fra en database og vise dem på en webapplikation.
+//Kort sagt gør denne metode det muligt at hente og filtrere artefakter fra en database og vise dem på en webapplikation.-Mk
 namespace RockExplorer.Pages.Artifacts__CRUD_
-{ 
-   public class Read : PageModel
+{
+    public class Read : PageModel
    {
         //private ICRUD catalog;
         private ArtifactCatalog catalog;
         public Read()
         {
-            catalog = ArtifactCatalog.Instace;
+            catalog = ArtifactCatalog.Instance;
         }
         public Dictionary<int, Artifact> Artifacts { get; private set; }
 
@@ -32,6 +32,7 @@ namespace RockExplorer.Pages.Artifacts__CRUD_
             {
                 Artifacts = catalog.FilterArtifact(FilterCriteria);
             }
+
 
             return Page();
         }
