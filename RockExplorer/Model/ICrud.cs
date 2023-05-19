@@ -4,6 +4,8 @@
  * Edited by: Gabriel H. Kierkegaard, Date: 17-05-2023
  */
 
+//Dette en simpel beskrivelse af en Interface kaldet ICRUD, der definerer fem grundlæggende operationer (Create, Read, Update, Delete) for at håndtere data for en type T Liste/ordbog.-MK
+
 namespace RockExplorer.Model
 {
     public interface ICRUD<T>
