@@ -8,11 +8,11 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RockExplorer.Interfaces;
 using RockExplorer.Model;
+using RockExplorer.ModelView;
 
 namespace RockExplorer.Pages.Artifacts
-// : Denne kode håndterer oprettelse af en ny kunstartefakt ved at modtage input fra en bruger og gemme det i en database.
+// : Denne kode håndterer oprettelse af en ny kunstartefakt ved at modtage input fra en bruger og gemme det i en database-MK
 {
 
     public class CreateArtifactModel : PageModel
@@ -25,7 +25,7 @@ namespace RockExplorer.Pages.Artifacts
 
         public CreateArtifactModel()
         {
-            catalog = ArtifactCatalog.Instace;
+            catalog = ArtifactCatalog.Instance;
         }
 
         public IActionResult OnGet()
