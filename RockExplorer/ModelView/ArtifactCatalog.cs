@@ -45,7 +45,7 @@ namespace RockExplorer.ModelView
         }
 
 
-        // hvis en person forsøger at tilføje et nyt objekt til samlingen og det objekts ID allerede findes, så bliver objektet ikke tilføjet til samlingen. 
+        // hvis en person forsøger at tilføje et nyt objekt til samlingen og det objekts ID allerede findes, så bliver objektet ikke tilføjet til samlingen. - Mk
         // Ellers bliver det nye objekt tilføjet til samlingen.-Mk
         public void Create(Artifact entity)
         {
@@ -63,7 +63,7 @@ namespace RockExplorer.ModelView
 
         }
 
-        // Metoden her giver dig en liste over alle artifacts, som er gemt i en database. 
+        // Metoden her giver dig en liste over alle artifacts, som er gemt i en database. - Mk
         // Hver artifact har et nummer, som kan bruges til at finde yderligere information om genstanden i databasen.-Mk
         public Dictionary<int, Artifact> ReadAll()
         {
@@ -93,7 +93,7 @@ namespace RockExplorer.ModelView
         }
 
 
-        // FilterArtifact !! Denne metode hjælper en person med at finde en bestemt artefakt baseret på en del af navnet,
+        // FilterArtifact !! Denne metode hjælper en person med at finde en bestemt artefakt baseret på en del af navnet,- Mk
         // og returnerer en liste over artefakter, der passer til dette kriterium.-Mk
 
         public Dictionary<int, Artifact> FilterArtifact(string criteria)
