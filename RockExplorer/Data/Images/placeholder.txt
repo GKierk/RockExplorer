@@ -1,0 +1,6 @@
+﻿namespace RockExplorer.Data.Images
+{
+    public class placeholder
+    {
+    }
+}
