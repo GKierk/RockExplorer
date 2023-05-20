@@ -3,7 +3,7 @@
     "Name": "Test",
     "Description": "Test",
     "PathToAudioFile": "",
-    "PathToImage": "",
+    "PathToImage": "guitar.jfif",
     "YearOfCreation": 2023,
     "Artist": "Lord Gaben"
   },
@@ -14,5 +14,13 @@
     "PathToImage": "test",
     "YearOfCreation": 2000,
     "Artist": "test"
+  },
+  "3": {
+    "Name": "Test",
+    "Description": "Test",
+    "PathToAudioFile": "Test",
+    "PathToImage": "Test",
+    "YearOfCreation": 2023,
+    "Artist": "Momo"
   }
 }
