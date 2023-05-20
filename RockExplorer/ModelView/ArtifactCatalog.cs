@@ -5,31 +5,41 @@
  * Edited by: Gabriel H. Kierkegaard, Date: 15-09-2023
  * Edited by: Gabriel H. Kierkegaard, Date: 16-09-2023
  * Edited by: Gabriel H. Kierkegaard, Date: 17-09-2023
+ * Edited by: Gabriel H. Kierkegaard, Date: 20-09-2023
  */
 
 
 
 using RockExplorer.Model;
+using RockExplorer.Helpers;
 
 namespace RockExplorer.ModelView
 {
     public class ArtifactCatalog : ICRUD<Artifact>
     {
         private static ArtifactCatalog instance = null;
-        private ArtifactCatalog catalog;
-        public Dictionary<int, Artifact> Artifacts { get; }
-        public int key { get; set; }
+        private string JsonFileName = @"Data\JsonArtifacts.json";
 
-        private int dictionarySize;
-        // Her har vi lavet en Dictionary, som beskriver vores Artifacts-Mk
         public ArtifactCatalog()
         {
-            Artifacts = new Dictionary<int, Artifact>();
-            Artifacts.Add(1, new Artifact { Name = "the black guitar", Description = "First black electric guitar ever made", PathToAudioFile = "XXX", PathToImage = "guitar.jfif", YearOfCreation = 1875, Artist = "Momo" });
-            Artifacts.Add(2, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
-            Artifacts.Add(3, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
-            dictionarySize = Artifacts.Count;
+            Artifacts = ReadAll();
         }
+
+        //private int dictionarySize;
+
+        // Her har vi lavet en Dictionary, som beskriver vores Artifacts-Mk
+        //public ArtifactCatalog()
+        //{
+        //    Artifacts = new Dictionary<int, Artifact>();
+
+        //    Artifacts.Add(1, new Artifact { Name = "the black guitar", Description = "First black electric guitar ever made", PathToAudioFile = "XXX", PathToImage = "guitar.jfif", YearOfCreation = 1875, Artist = "Momo" });
+        //    Artifacts.Add(2, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
+        //    Artifacts.Add(3, new Artifact { Name = "XXX", Description = "XXX", PathToAudioFile = "XXX", PathToImage = "XXX", YearOfCreation = 123, Artist = "XXX" });
+        //    dictionarySize = Artifacts.Count;
+        //}
+
+        public Dictionary<int, Artifact> Artifacts { get; private set; }
+        public int key { get; set; }
 
         public static ArtifactCatalog Instance
         {
@@ -49,9 +59,16 @@ namespace RockExplorer.ModelView
         // Ellers bliver det nye objekt tilføjet til samlingen.-Mk
         public void Create(Artifact entity)
         {
-            ArtifactCatalog cat = instance;
+            //ArtifactCatalog cat = instance;
+            //dictionarySize++;
+            //cat.Artifacts.Add(dictionarySize, entity);
+
+            ArtifactCatalog cat = ArtifactCatalog.Instance;
+            int dictionarySize = ReadAll().Count();
             dictionarySize++;
+
             cat.Artifacts.Add(dictionarySize, entity);
+            JsonFileHandler.WriteToJson(JsonFileName);
         }
 
 
@@ -67,7 +84,7 @@ namespace RockExplorer.ModelView
         // Hver artifact har et nummer, som kan bruges til at finde yderligere information om genstanden i databasen.-Mk
         public Dictionary<int, Artifact> ReadAll()
         {
-            return Artifacts;
+            return JsonFileHandler.ReadJson(JsonFileName);
         }
 
         //hvis du har en liste med artifacter og du ønsker at opdatere en af dem, kan du bruge denne metode til at erstatte den gamle artifact med den nye.-Mk
