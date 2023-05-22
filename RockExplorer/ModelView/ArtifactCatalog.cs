@@ -101,6 +101,8 @@ namespace RockExplorer.ModelView
                 cat.Artifacts[key].YearOfCreation = entity.YearOfCreation;
                 cat.Artifacts[key].Artist = entity.Artist;
             }
+
+            JsonFileHandler.WriteToJson(JsonFileName);
         }
         //Metoden sletter en genstand fra listen ved at bruge det angivne ID.-Mk
         public void Delete(int id)
