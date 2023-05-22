@@ -105,10 +105,28 @@ namespace RockExplorer.ModelView
             JsonFileHandler.WriteToJson(JsonFileName);
         }
         //Metoden sletter en genstand fra listen ved at bruge det angivne ID.-Mk
-        public void Delete(int id)
+        public void Delete(int key)
         {
             ArtifactCatalog cat = Instance;
-            cat.Artifacts.Remove(id);
+            Dictionary<int, Artifact> tempDictionary = new Dictionary<int, Artifact>();
+            int counter = 1;
+
+            // Slet artifact med tilsvarende key
+            cat.Artifacts.Remove(key);
+
+            // Kopier artifact liste til midlertidig liste, hvor der dekrementeres.
+            foreach (var kvp in cat.Artifacts)
+            {
+
+                if (counter <= cat.Artifacts.Count)
+                {
+                    if (cat.Artifacts.ContainsKey(counter))
+                    {
+                        tempDictionary.Add(cat.Artifacts[kvp.Key]);
+                    }
+
+                }
+            }
         }
 
 
