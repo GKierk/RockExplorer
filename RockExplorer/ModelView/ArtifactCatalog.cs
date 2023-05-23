@@ -109,34 +109,39 @@ namespace RockExplorer.ModelView
         {
             ArtifactCatalog cat = Instance;
             Dictionary<int, Artifact> tempDictionary = new Dictionary<int, Artifact>();
-            int counter = 1;
-            int decrementer;
-
-            // Slet artifact med tilsvarende key
-            cat.Artifacts.Remove(key);
+            int currentKeyNumber = 1;
 
             // Kopier artifact liste til midlertidig liste, hvor der dekrementeres.
             foreach (var kvp in cat.Artifacts)
             {
 
-                if (counter <= cat.Artifacts.Count + 1)
+                if (currentKeyNumber <= cat.Artifacts.Count + 1)
                 {
-                    if (cat.Artifacts.ContainsKey(counter))
+                    //if (cat.Artifacts.ContainsKey(currentKeyNumber))
+                    //{
+                    //    tempDictionary.Add(currentKeyNumber, cat.Artifacts[kvp.Key]);
+                    //}
+                    //else if (!cat.Artifacts.ContainsKey(currentKeyNumber))
+                    //{
+
+                    //    decrementedKeyNumber = currentKeyNumber;
+                    //    tempDictionary.Add(--decrementedKeyNumber, cat.Artifacts[kvp.Key]);
+                    //}
+
+                    //cat.Artifacts.Remove(key);
+
+                    if (currentKeyNumber != key)
                     {
-                        tempDictionary.Add(counter, cat.Artifacts[kvp.Key]);
+                        tempDictionary.Add(currentKeyNumber, cat.Artifacts[kvp.Key]);
                     }
-                    else if(!cat.Artifacts.ContainsKey(counter))
+                    else
                     {
-
-                        decrementer = counter;
-                        tempDictionary.Add(--decrementer, cat.Artifacts[kvp.Key]);
-
+                        currentKeyNumber--;
+                        cat.Artifacts.Remove(key);
                     }
-
-                    
-
                 }
-                counter++;
+
+                currentKeyNumber++;
             }
             cat.Artifacts.Clear();
             cat.Artifacts = tempDictionary;
