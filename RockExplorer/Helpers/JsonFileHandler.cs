@@ -10,22 +10,33 @@ namespace RockExplorer.Helpers
     {
         public static Dictionary<int, Artifact> ReadJson(string JsonFileName)
         {
-            using (var jsonFileReader = File.OpenText(JsonFileName))
+            if (File.Exists(JsonFileName))
             {
-                if (JsonFileName != null)
+
+                using (var jsonFileReader = File.OpenText(JsonFileName))
                 {
                     return JsonSerializer.Deserialize<Dictionary<int, Artifact>>(jsonFileReader.ReadToEnd());
                 }
-                else
+            }
+            else
+            {
+                File.Create(JsonFileName);
+
+                using (var jsonFileReader = File.OpenText(JsonFileName))
                 {
-                    return null;
+                    return new Dictionary<int, Artifact>();
                 }
             }
+
+
         }
 
         public static void WriteToJson(string JsonFileName)
         {
             ArtifactCatalog catalog = ArtifactCatalog.Instance;
+
+            File.Delete(JsonFileName);
+            File.Create(JsonFileName);
 
             using (FileStream outputStream = File.OpenWrite(JsonFileName))
             {
@@ -34,6 +45,7 @@ namespace RockExplorer.Helpers
                     SkipValidation = false,
                     Indented = true
                 });
+
 
                 JsonSerializer.Serialize<Dictionary<int, Artifact>>(writer, catalog.Artifacts);
             }
