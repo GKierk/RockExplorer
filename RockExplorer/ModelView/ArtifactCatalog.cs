@@ -110,6 +110,7 @@ namespace RockExplorer.ModelView
             ArtifactCatalog cat = Instance;
             Dictionary<int, Artifact> tempDictionary = new Dictionary<int, Artifact>();
             int counter = 1;
+            int decrementer;
 
             // Slet artifact med tilsvarende key
             cat.Artifacts.Remove(key);
@@ -118,15 +119,28 @@ namespace RockExplorer.ModelView
             foreach (var kvp in cat.Artifacts)
             {
 
-                if (counter <= cat.Artifacts.Count)
+                if (counter <= cat.Artifacts.Count + 1)
                 {
                     if (cat.Artifacts.ContainsKey(counter))
                     {
-                        tempDictionary.Add(cat.Artifacts[kvp.Key]);
+                        tempDictionary.Add(counter, cat.Artifacts[kvp.Key]);
+                    }
+                    else if(!cat.Artifacts.ContainsKey(counter))
+                    {
+
+                        decrementer = counter;
+                        tempDictionary.Add(--decrementer, cat.Artifacts[kvp.Key]);
+
                     }
 
+                    
+
                 }
+                counter++;
             }
+            cat.Artifacts.Clear();
+            cat.Artifacts = tempDictionary;
+            JsonFileHandler.WriteToJson(JsonFileName);
         }
 
 
