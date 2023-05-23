@@ -18,7 +18,7 @@ namespace RockExplorer.ModelView
     public class ArtifactCatalog : ICRUD<Artifact>
     {
         private static ArtifactCatalog instance = null;
-        private string JsonFileName = @"Data\JsonArtifacts.json";
+        private string JsonFileName = @"Data/JsonArtifacts.json";
 
         public ArtifactCatalog()
         {
